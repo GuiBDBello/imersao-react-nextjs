@@ -5,6 +5,8 @@ import QuizBackground from '../src/components/QuizBackground'
 import Footer from '../src/components/Footer'
 import GitHubCorner from '../src/components/GitHubCorner'
 
+import Head from 'next/head'
+
 // const BackgroundImage = styled.div`
 //   background-image: url(${db.bg});
 //   flex: 1;
@@ -25,30 +27,38 @@ export const QuizContainer = styled.div`
 
 export default function Home() {
   return (
-    <QuizBackground backgroundImage={db.bg}>
-      <QuizContainer>
-        <Widget>
-          <Widget.Header>
-            <h1>CSS</h1>
-          </Widget.Header>
-          <Widget.Content>
-            <p>Cascading Style Sheets is Awesome!</p>
-          </Widget.Content>
-        </Widget>
-        <Widget>
-          <Widget.Content>
-            <h1>Quizes da Galera</h1>
-            <p>Quiz</p>
-            <p>Quiz</p>
-            <p>Quiz</p>
-            <p>Quiz</p>
-            <p>Quiz</p>
-          </Widget.Content>
-        </Widget>
+    <>
+      <Head>
+        <meta property="og:image" content={db.bg} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+      </Head>
+      <QuizBackground backgroundImage={db.bg}>
+        <QuizContainer>
+          <Widget>
+            <Widget.Header>
+              <h1>CSS</h1>
+            </Widget.Header>
+            <Widget.Content>
+              <p>Cascading Style Sheets is Awesome!</p>
+            </Widget.Content>
+          </Widget>
+          <Widget>
+            <Widget.Content>
+              <h1>Quizes da Galera</h1>
+              <p>Quiz</p>
+              <p>Quiz</p>
+              <p>Quiz</p>
+              <p>Quiz</p>
+              <p>Quiz</p>
+            </Widget.Content>
+          </Widget>
 
-        <Footer />
-      </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/GuiDB" />
-    </QuizBackground>
+          <Footer />
+        </QuizContainer>
+        <GitHubCorner projectUrl="https://github.com/GuiDB" />
+      </QuizBackground>
+    </>
   );
 }
