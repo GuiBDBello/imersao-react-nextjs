@@ -1,11 +1,14 @@
-import styled from 'styled-components'
-import db from '../db.json'
-import Widget from '../src/components/Widget'
-import QuizBackground from '../src/components/QuizBackground'
-import Footer from '../src/components/Footer'
-import GitHubCorner from '../src/components/GitHubCorner'
+import React from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-import Head from 'next/head'
+import styled from 'styled-components';
+
+import db from '../db.json';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizBackground from '../src/components/QuizBackground';
+import Widget from '../src/components/Widget';
 
 // const BackgroundImage = styled.div`
 //   background-image: url(${db.bg});
@@ -26,39 +29,51 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <meta property="og:image" content={db.bg} />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="800" />
-        <meta property="og:image:height" content="600" />
-      </Head>
-      <QuizBackground backgroundImage={db.bg}>
-        <QuizContainer>
-          <Widget>
-            <Widget.Header>
-              <h1>CSS</h1>
-            </Widget.Header>
-            <Widget.Content>
-              <p>Cascading Style Sheets is Awesome!</p>
-            </Widget.Content>
-          </Widget>
-          <Widget>
-            <Widget.Content>
-              <h1>Quizes da Galera</h1>
-              <p>Quiz</p>
-              <p>Quiz</p>
-              <p>Quiz</p>
-              <p>Quiz</p>
-              <p>Quiz</p>
-            </Widget.Content>
-          </Widget>
+  const router = useRouter();
+  const [name, setName] = React.useState('');
 
-          <Footer />
-        </QuizContainer>
-        <GitHubCorner projectUrl="https://github.com/GuiDB" />
-      </QuizBackground>
-    </>
+  return (
+    <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>AluraQuiz - GuiDB</title>
+      </Head>
+      <QuizContainer>
+        <Widget>
+          <Widget.Header>
+            <h1>CSS</h1>
+          </Widget.Header>
+          <Widget.Content>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              router.push(`/quiz?name=${name}`);
+              console.log('Fazendo uma submissão por meio do React');
+            }}
+            >
+              <input
+                placeholder="Diz aí seu nome para jogar :)"
+                onChange={(e) => setName(e.target.value)}
+              />
+              <button type="submit" disabled={name.length < 2}>
+                Jogar
+                {name}
+              </button>
+            </form>
+          </Widget.Content>
+        </Widget>
+        <Widget>
+          <Widget.Content>
+            <h1>Quizes da Galera</h1>
+            <p>Quiz</p>
+            <p>Quiz</p>
+            <p>Quiz</p>
+            <p>Quiz</p>
+            <p>Quiz</p>
+          </Widget.Content>
+        </Widget>
+
+        <Footer />
+      </QuizContainer>
+      <GitHubCorner projectUrl="https://github.com/GuiDB" />
+    </QuizBackground>
   );
 }

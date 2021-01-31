@@ -1,14 +1,13 @@
-import styled from 'styled-components'
-import db from '../db.json'
-import QuizBackground from '../src/components/QuizBackground'
-import GitHubCorner from '../src/components/GitHubCorner'
+import React from 'react';
 
-export default function Quiz() {
+import db from '../db.json';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizBackground from '../src/components/QuizBackground';
+
+export default function QuizPage() {
   return (
-    <>
-      <QuizBackground backgroundImage={db.bg}>
-        <GitHubCorner projectUrl="https://github.com/GuiDB" />
-      </QuizBackground>
-    </>
+    <QuizBackground backgroundImage={db.bg}>
+      <GitHubCorner projectUrl="https://github.com/GuiDB" />
+    </QuizBackground>
   );
 }
