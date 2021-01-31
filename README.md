@@ -17,3 +17,16 @@ Projeto criado para a Imersão React Next.JS da Alura, que ocorreu entre 25 e 29
 ### Visual Studio Code:
 
 - `Ctrl + Shift + P` e digite `eslint fix all`: Corrige seu código automaticamente.
+
+## Aula 3: Inputs e página de Quiz
+
+- `npm install prop-types`: Biblioteca que realiza validações de tipagem.
+
+### Dica:
+
+- Ótima forma de "debugar"/visualizar os seus dados na página (no meio do *JSX*):
+```
+<pre>
+    {JSON.stringify(question, null, 4)}
+</pre>
+```
