@@ -30,3 +30,15 @@ Projeto criado para a Imersão React Next.JS da Alura, que ocorreu entre 25 e 29
     {JSON.stringify(question, null, 4)}
 </pre>
 ```
+
+## Aula 4: Quiz, Pontuação e Integrações com Next.js
+
+- Se você criar um diretório chamado `api/` dentro do diretório `pages/` o *Next.js* configura os arquivos desse diretório para um *Lambda Server*, que define um *endpoint* que possibilita receber uma requisição e retornar uma resposta.
+- **Ex.:**
+```
+import db from '../../db.json';
+
+export default function (request, response) {
+  response.json(db);
+}
+```
