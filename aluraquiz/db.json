@@ -27,7 +27,9 @@
         }
     ],
     "external": [
-        ""
+        "https://imersao-react-nextjs.guidb.vercel.app/",
+        "https://imersao-react-nextjs-git-main.guidb.vercel.app/",
+        "https://imersao-react-nextjs-ruby.vercel.app/"
     ],
     "theme": {
         "colors": {

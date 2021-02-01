@@ -33,12 +33,29 @@ Projeto criado para a Imersão React Next.JS da Alura, que ocorreu entre 25 e 29
 
 ## Aula 4: Quiz, Pontuação e Integrações com Next.js
 
-- Se você criar um diretório chamado `api/` dentro do diretório `pages/` o *Next.js* configura os arquivos desse diretório para um *Lambda Server*, que define um *endpoint* que possibilita receber uma requisição e retornar uma resposta.
+- Se você criar um diretório chamado `api/` dentro do diretório `pages/` o *Next.js* configura os arquivos desse diretório em um *Lambda Server*, que disponibiliza um *endpoint* que qualquer um poderá consumir.
 - **Ex.:**
 ```
 import db from '../../db.json';
 
 export default function (request, response) {
   response.json(db);
+}
+```
+
+## Aula 5: Páginas dinâmicas, animações e Lottie
+
+- `npm install framer-motion`: Biblioteca que facilita a implantação de animações em sua página.
+- `npm install @crello/react-lottie`: Biblioteca que .
+
+### Next.js:
+
+- A principal função do *Next.js* é resolver a parte de roteamento da aplicação.
+- Se você exportar uma função assíncrona chamada `getServerSideProps` de uma página, o *Next.js* vai pré-renderizar essa página em cada *request* utilizando os dados retornados pela função.
+```
+export async function getServerSideProps(context) {
+  return {
+    props: {}, // will be passed to the page component as props
+  }
 }
 ```
